@@ -10,12 +10,9 @@ vector < vector <float> > blur(vector < vector < float> > grid, float blurring) 
 	vector <float> row;
 	vector <float> newRow;
 
-	int height;
-	int width;
+	int height = grid.size();
+	int width grid[0].size();
 	float center, corner, adjacent;
-
-	height = grid.size();
-	width = grid[0].size();
 
 	// calculate blur factors
 	center = 1.0 - blurring;
@@ -24,90 +21,20 @@ vector < vector <float> > blur(vector < vector < float> > grid, float blurring) 
 
 	int i, j;
 	float val;
+	
 
 	// 2D vector reprenting the blur filter
-	for (i=0; i<3; i++) {
-		row.clear();
-		for (j=0; j<3; j++) {
-			switch (i) {
-				case 0: 
-				switch (j) {
-					case 0: 
-					val = corner;
-					break;
-
-					case 1: 
-					val = adjacent;
-					break;
-
-					case 2: 
-					val = corner;
-					break;
-				}
-				break; 
-
-				case 1:
-				switch (j) {
-					case 0: 
-					val = adjacent;
-					break;
-
-					case 1: 
-					val = center;
-					break;
-					
-					case 2: 
-					val = adjacent;
-					break;
-				}
-				break;
-
-				case 2:
-				switch(j) {
-					case 0: 
-					val = corner;
-					break;
-
-					case 1: 
-					val = adjacent;
-					break;
-					
-					case 2: 
-					val = corner;
-					break;
-				}
-				break;
-			}
-			row.push_back(val);
-		}
-		window.push_back(row);
-	}
-
+	window = {{corner, adjacent, corner}, {adjacent, center, adjacent}, {corner, adjacent, corner}};
 
 	// variables for blur calculations
-	vector <int> DX;
-	vector <int> DY;
+	vector <int> DX = {-1, 0, 1};
+	vector <int> DY = {-1, 0, 1};
 
-	DX.push_back(-1); DX.push_back(0); DX.push_back(1);
-	DY.push_back(-1); DY.push_back(0); DY.push_back(1);
-
-	int dx;
-	int dy;
-	int ii;
-	int jj;
-	int new_i;
-	int new_j;
-	float multiplier;
-	float newVal;
+	int dx, dy, ii, jj, new_i, new_j;
+	float multiplier, newVal;
 
 	// initialize new grid to zeros
-	for (i=0; i<height; i++) {
-		newRow.clear();
-		for (j=0; j<width; j++) {
-			newRow.push_back(0.0);
-		}
-		newGrid.push_back(newRow);
-	}
+	newGrid = zeros(height, width);
 
 	// blur the grid and store in a new 2D vector
 	for (i=0; i< height; i++ ) {

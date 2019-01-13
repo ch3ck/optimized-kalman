@@ -6,7 +6,7 @@ CC=gcc
 CXX=g++
 RM=rm -f
 LDLIBS=-lm
-CPPFLAGS=-std=c++11 -Wfatal-errors -Wall
+CPPFLAGS=-std=c++11 -Wfatal-errors -Wall -O3
 # CPPFLAGS += -Wextra -Wwrite-strings -Wno-parentheses -Wconversion -Wshadow
 # CPPFLAGS += -Wpedantic -Warray-bounds -Weffc++
 SRCS=blur.cpp initialize_beliefs.cpp main.cpp move.cpp normalize.cpp print.cpp sense.cpp zeros.cpp

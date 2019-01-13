@@ -4,6 +4,7 @@
 #include <vector>
 #include "zeros.h"
 
-std::vector < std::vector <float> > blur(std::vector < std::vector < float> > grid, float blurring);
+std::vector < std::vector <float> > blur(std::vector < std::vector < float> > *grid, float blurring);
+
 
 #endif /* BLUR.H */

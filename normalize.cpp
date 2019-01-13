@@ -7,13 +7,13 @@ vector< vector<float> > normalize(vector< vector <float> > *grid) {
 	int i, j;
 
 	for (i = 0; i < grid->size(); i++) {
-		for (j=0; j< (*grid)[i]->size(); j++) {
+		for (j=0; j< (*grid)[i].size(); j++) {
 			total += (*grid)[i][j];
 		}
 	}
 
 	for (i = 0; i < grid->size(); i++) {
-		for (j=0; j< (*grid)[0]->size(); j++) {
+		for (j=0; j< (*grid)[0].size(); j++) {
 			(*grid)[i][j] /= total;
 		}
 	}

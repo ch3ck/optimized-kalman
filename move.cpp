@@ -5,23 +5,16 @@ using namespace std;
 vector< vector <float> > move(int dy, int dx, 
 	vector < vector <float> > *beliefs) 
 {
-	int height, width;
-	height = beliefs->size();
-	width = (*beliefs)[0].size();
-
-	float belief;
+	int height = beliefs->size();
+	int width = (*beliefs)[0].size();
 	vector < vector <float> > newGrid = zeros(height, width);
-
-	vector <float> row, newRow;
-
+	
 	int i, j, new_i, new_j;
-	for (i=0; i<height; i++) {
-		for (j=0; j<width; j++) {
+	for (i = 0; i < height; i++) {
+		for (j = 0; j < width; j++) {
 			new_i = (i + dy + height) % height;
 			new_j = (j + dx + width)  % width;
-			belief = (*beliefs)[i][j];
-
-			newGrid[new_i][new_j] = belief;
+			newGrid[new_i][new_j] = (*beliefs)[i][j];
 		}
 	}
 	return newGrid;

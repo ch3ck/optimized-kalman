@@ -3,17 +3,7 @@ using namespace std;
 
 
 vector < vector <float> > zeros(int height, int width) {
-	int i, j;
-	vector < vector <float> > newGrid;
-	vector <float> newRow;
-	
-	for (j=0; j< width; j++) {
-		newRow.push_back(0.0);
-	}
-	
-	for (i = 0; i < height; i++) {
-		newGrid.push_back(newRow);
-	}
-	
+	vector <float> newRow(width, 0.0);
+	vector < vector <float> > newGrid(height, newRow);
 	return newGrid;
 }

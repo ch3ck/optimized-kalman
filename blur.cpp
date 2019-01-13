@@ -2,7 +2,7 @@
 
 using namespace std;
 
-vector < vector <float> > blur(vector < vector < float> > grid, float blurring) {
+vector < vector <float> > blur(vector < vector < float> > *grid, float blurring) {
 
 	// initialize variables
 	vector < vector <float> > window;
@@ -10,8 +10,8 @@ vector < vector <float> > blur(vector < vector < float> > grid, float blurring) 
 	vector <float> row;
 	vector <float> newRow;
 
-	int height = grid.size();
-	int width grid[0].size();
+	int height = grid->size();
+	int width = (*grid)[0].size();
 	float center, corner, adjacent;
 
 	// calculate blur factors
@@ -39,7 +39,7 @@ vector < vector <float> > blur(vector < vector < float> > grid, float blurring) 
 	// blur the grid and store in a new 2D vector
 	for (i=0; i< height; i++ ) {
 		for (j=0; j<width; j++ ) {
-			val = grid[i][j];
+			val = (*grid)[i][j];
 			newVal = val;
 			for (ii=0; ii<3; ii++) {
 				dy = DY[ii];

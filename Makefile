@@ -5,8 +5,8 @@
 CC=gcc
 CXX=g++
 RM=rm -f
-LDLIBS= #-lm
-CPPFLAGS=-std=c++11 -Wfatal-errors -Wall
+LDLIBS=-lm
+CPPFLAGS=-std=c++11 -Wfatal-errors -Wall -fsyntax-only
 # CPPFLAGS += -Wextra -Wwrite-strings -Wno-parentheses -Wconversion -Wshadow
 # CPPFLAGS += -Wpedantic -Warray-bounds -Weffc++
 SRCS=blur.cpp initialize_beliefs.cpp main.cpp move.cpp normalize.cpp print.cpp sense.cpp, zeros.cpp
@@ -42,7 +42,7 @@ zeros.o: zeros.cpp headers/zeros.h
 
 
 clean:
-	$(RM) $(OBJS) $(HDRS) kalman
+	$(RM) $(OBJS) headers/$(HDRS) kalman
 
 dist-clean: clean
 	$(RM) kalman

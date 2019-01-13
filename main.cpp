@@ -28,7 +28,7 @@ int main() {
 	// test initialize_beliefs
 	start = std::clock();
 	for (int i = 0; i < iterations; i++) {
-		beliefs = initialize_beliefs(grid);
+		beliefs = initialize_beliefs(&grid);
 	}
 	duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
 	std::cout << "duration milliseconds initialize beliefs " << 1000 * duration << '\n';
@@ -36,7 +36,7 @@ int main() {
 	// test sense
 	start = std::clock();
 	for (int i = 0; i < iterations; i++) {
-		beliefs = sense('g', grid, beliefs, .7, .2);
+		beliefs = sense('g', &grid, &beliefs, .7, .2);
 	}
 	duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
 	std::cout << "duration milliseconds sense " << 1000 * duration << '\n';
@@ -44,7 +44,7 @@ int main() {
 	// test blur
 	start = std::clock();
 	for (int i = 0; i < iterations; i++) {
-		beliefs = blur(beliefs, .12);
+		beliefs = blur(&beliefs, .12);
 	}
 	duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
 	std::cout << "duration milliseconds blur " << 1000 * duration << '\n';
@@ -52,7 +52,7 @@ int main() {
 	// test normalize
 	start = std::clock();
 	for (int i = 0; i < iterations; i++) {
-		beliefs = normalize(beliefs);
+		beliefs = normalize(&beliefs);
 	}
 	duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
 	std::cout << "duration milliseconds normalize " << 1000 * duration << '\n';
@@ -60,9 +60,10 @@ int main() {
 	// test move
 	start = std::clock();
 	for (int i = 0; i < iterations; i++) {
-		beliefs = move(3, 2, beliefs);
+		beliefs = move(3, 2, &beliefs);
 	}
 	duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
 	std::cout << "duration milliseconds move " << 1000 * duration << '\n';
 
+	return 0;
 }

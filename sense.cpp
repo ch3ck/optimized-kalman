@@ -9,10 +9,10 @@ vector< vector <float> > sense(char color, vector< vector <char> > *grid, vector
 	float prior, p;
 	char cell;
 	int i, j, height, width;
-
+	
 	height = grid->size();
 	width = (*grid).size();
-
+	
 	for (i = 0; i < height; i++) {
 		for (j = 0; j < width; j++) {
 			prior = (*beliefs)[i][j];
@@ -22,7 +22,7 @@ vector< vector <float> > sense(char color, vector< vector <char> > *grid, vector
 			} else {
 				p = prior * p_miss;
 			}
-
+			
 			(*beliefs)[i][j] = p;
 		}
 	}

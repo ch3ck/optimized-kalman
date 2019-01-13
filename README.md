@@ -35,6 +35,14 @@ duration milliseconds normalize 12.03
 duration milliseconds move 15.498
 ```
 
+### Compiler Optimized
+```
+duration milliseconds initialize beliefs 6.66
+duration milliseconds sense 6.234
+duration milliseconds blur 18.981
+duration milliseconds normalize 5.169
+duration milliseconds move 7.204
+```
 ## Contributing
 If you encounter a bug problems, I'll like to hear about it. Also, pull requests are welcomed
 
